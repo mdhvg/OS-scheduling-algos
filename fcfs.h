@@ -7,6 +7,7 @@ using namespace std;
 
 struct FirstCome
 {
+	bool operator()(const process& p1, const process& p2)
 	{
 		return p1.at > p2.at;
 	}
@@ -16,7 +17,6 @@ vector<Task> fcfs(vector<process>& processes)
 {
 	priority_queue<process, vector<process>, FirstCome> pq;
 	vector<Task> runs;
-	int numProcesses = processes.size();
 	for (process proc : processes)
 	{
 		pq.push(proc);
@@ -31,7 +31,6 @@ vector<Task> fcfs(vector<process>& processes)
 		}
 		int ct = currentTime + top.bt;
 		int tat = ct - top.at;
-		int wt = tat - top.bt;
 		runs.push_back({ top.pid, {currentTime, currentTime + top.bt}, currentTime + top.bt, top.at, top.bt });
 		currentTime += top.bt;
 		pq.pop();

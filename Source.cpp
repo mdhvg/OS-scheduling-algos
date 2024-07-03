@@ -25,6 +25,7 @@ int main() {
 		processes[i].pid = i + 1;
 	}
 
+	// Test values
 	//vector<process> processes = {
 	//	//  pid		at		bt		priori
 	//		{1,		3,		2,		1}, // 1
